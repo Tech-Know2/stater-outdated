@@ -1,2 +1,8 @@
 # stater
-A fintech wallet that acts like a bank for users. Allows anyone, anywhere to build and manage their wealth.
+A crypto wallet that acts like a bank or standard fintech application.
+-Direct deposit and bank account connections with Plaid
+-On/Off ramp into wallet with MoneyGram
+-Interest earning accounts powered by DeFi
+-Passkeys and signing powered by Stellar
+-Low fees and free accounts
+-and so much more
