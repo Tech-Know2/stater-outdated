@@ -28,7 +28,6 @@ const Login = () => {
         password,
       });
 
-      // This indicates the user is signed in
       await setActive({ session: completeSignIn.createdSessionId });
     } catch (err: any) {
       alert(err.errors[0].message);
@@ -38,58 +37,63 @@ const Login = () => {
   };
 
   return (
-    <View className="flex-1 justify-center items-center bg-gray-100 p-5">
+    <View className="flex-1 justify-center items-center bg-gray-50 p-6">
       <Spinner visible={loading} />
 
       <Image
         source={require('../../assets/images/brand.png')}
-        className='scale-75'
+        className='w-3/4 h-32 mb-6'
       />
 
-      <TextInput
-        autoCapitalize="none"
-        placeholder="Your email here"
-        value={emailAddress}
-        onChangeText={setEmailAddress}
-        className="my-2 h-12 w-full max-w-md border border-gray-400 rounded p-2 bg-white text-black placeholder-gray-500"
-      />
-      <View className="relative w-full max-w-md">
+      <View className="w-full max-w-md">
+        <Text className="text-lg font-semibold mb-2">Email:</Text>
         <TextInput
-          placeholder="Your password here"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={!showPassword}
-          className="my-2 h-12 w-full border border-gray-400 rounded p-2 bg-white text-black placeholder-gray-500"
+          autoCapitalize="none"
+          placeholder="Your email here"
+          value={emailAddress}
+          onChangeText={setEmailAddress}
+          className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500"
         />
-        <Pressable
-          onPress={toggleShowPassword}
-          className="absolute right-3 top-3 align-middle"
-        >
-          <MaterialCommunityIcons
-            name={showPassword ? 'eye-off' : 'eye'}
-            size={24}
-            color="#aaa"
+        
+        <Text className="text-lg font-semibold mb-2">Password:</Text>
+        <View className="relative mb-6">
+          <TextInput
+            placeholder="Your password here"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={!showPassword}
+            className="h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500"
           />
+          <Pressable
+            onPress={toggleShowPassword}
+            className="absolute right-3 top-3"
+          >
+            <MaterialCommunityIcons
+              name={showPassword ? 'eye-off' : 'eye'}
+              size={24}
+              color="#aaa"
+            />
+          </Pressable>
+        </View>
+
+        <Pressable
+          onPress={onSignInPress}
+          className="h-12 bg-black rounded-lg flex justify-center items-center mb-4"
+        >
+          <Text className="text-white text-lg font-semibold">Login</Text>
         </Pressable>
+
+        <Link href="/reset" asChild>
+          <Pressable className="mb-2">
+            <Text className="text-black text-center text-lg my-3 mb-2">Forgot password?</Text>
+          </Pressable>
+        </Link>
+        <Link href="/register" asChild>
+          <Pressable>
+            <Text className="text-black text-center text-lg">Create Account</Text>
+          </Pressable>
+        </Link>
       </View>
-
-      <Pressable
-        onPress={onSignInPress}
-        className="my-4 h-12 w-full max-w-md bg-black rounded flex justify-center items-center"
-      >
-        <Text className="text-white text-lg">Login</Text>
-      </Pressable>
-
-      <Link href="/reset" asChild>
-        <Pressable className="my-2">
-          <Text className="text-gray-600">Forgot password?</Text>
-        </Pressable>
-      </Link>
-      <Link href="/register" asChild>
-        <Pressable className="my-2">
-          <Text className="text-gray-600">Create Account</Text>
-        </Pressable>
-      </Link>
     </View>
   );
 };

@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <View className='flex justify-center items-center'>
-      <Text>Welcome, {user?.firstName} 🎉</Text>
+      <Text>Welcome, {user?.username}!</Text>
     </View>
   );
 };
