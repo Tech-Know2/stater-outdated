@@ -1,14 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import { useState } from 'react';
-import { useSignUp } from '@clerk/nextjs';
+import { useState, useEffect } from 'react';
+import { useSignUp, useAuth } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ClipLoader } from 'react-spinners';
 import { HiOutlineEye } from "react-icons/hi2";
 import { HiOutlineEyeOff } from "react-icons/hi";
 import Navbar from '@/app/navbar';
+import { UserType, accountRole } from '@/types/userType';
 
 export default function Register() {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -17,11 +18,14 @@ export default function Register() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState<accountRole>(accountRole.Retail);
   const [pendingVerification, setPendingVerification] = useState(false);
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
+
+  const { isLoaded: authLoaded, userId } = useAuth();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -57,14 +61,67 @@ export default function Register() {
 
     setLoading(true);
 
-    try {
-      const completeSignUp = await signUp.attemptEmailAddressVerification({ code });
+    const completeSignUp = await signUp.attemptEmailAddressVerification({ code });
 
-      if (completeSignUp.status === 'complete') {
-        await setActive({ session: completeSignUp.createdSessionId });
-        router.push('/');
-      } else {
-        console.error(JSON.stringify(completeSignUp, null, 2));
+    if (completeSignUp.status === 'complete') {
+      await setActive({ session: completeSignUp.createdSessionId });
+
+      // Wait for auth to load user ID
+      await new Promise((resolve) => {
+        const interval = setInterval(() => {
+          if (authLoaded) {
+            clearInterval(interval);
+            resolve(null);
+          }
+        }, 100);
+      });
+
+      createNewUser();
+    } else {
+      console.error(JSON.stringify(completeSignUp, null, 2));
+    }
+  };
+
+  const createNewUser = async () => {
+    if (!userId) {
+      console.error("User ID is null or undefined.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const newUser: UserType = {
+        clerkID: userId!,
+        firstName,
+        lastName,
+        userName: username,
+        accountEmail: emailAddress,
+        accountRole: role,
+        wallets: [],
+      };
+
+      try {
+        const response = await fetch('/api/user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newUser),
+        });
+
+        if (!response.ok) {
+          console.log('Failed to create user.');
+        }
+      } catch (error) {
+        console.error('Error saving user to database:', error);
+      }
+
+      if(role === accountRole.Retail) {
+        router.push('/retail');
+      } else if (role === accountRole.Business) {
+        router.push('/business');
+      } else if (role === accountRole.Institution) {
+        router.push('/institution');
       }
     } catch (err) {
       console.error(JSON.stringify(err, null, 2));
@@ -129,6 +186,19 @@ export default function Register() {
             </div>
           </div>
 
+          {/* DROPDOWN HERE FOR ACCOUNT TYPE SELECTION */}
+          <label htmlFor="role" className="text-lg font-semibold mb-2 block">Account Type:</label>
+          <select
+            id="role"
+            value={role}
+            onChange={(e) => setRole(e.target.value as accountRole)}
+            className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 w-full"
+          >
+            <option value={accountRole.Retail}>{accountRole.Retail}</option>
+            <option value={accountRole.Business}>{accountRole.Business}</option>
+            <option value={accountRole.Institution}>{accountRole.Institution}</option>
+          </select>
+
           <label htmlFor="password" className="text-lg font-semibold mb-2 block">Password:</label>
           <div className="relative mb-6">
             <input
@@ -171,17 +241,22 @@ export default function Register() {
           <input
             type="text"
             id="code"
-            placeholder="Enter the code"
+            placeholder="Enter your verification code here"
             value={code}
             onChange={(e) => setCode(e.target.value)}
             className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
           />
+
           <button
             onClick={handleVerify}
-            className="h-12 bg-black rounded-lg flex justify-center items-center"
+            className="h-12 bg-black rounded-lg flex justify-center items-center mb-4 w-full"
           >
-            <span className="text-white text-lg font-semibold px-2">Verify Email</span>
+            <span className="text-white text-lg font-semibold">Verify Email</span>
           </button>
+
+          <Link href="/sign-in" className="block text-center text-lg text-black">
+            Already have an account? Log in
+          </Link>
         </div>
       )}
     </div>
