@@ -18,7 +18,7 @@ export default function Register() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<accountRole>(accountRole.Retail);
+  const [role, setRole] = useState<accountRole>(accountRole.Business);
   const [pendingVerification, setPendingVerification] = useState(false);
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
@@ -116,9 +116,7 @@ export default function Register() {
         console.error('Error saving user to database:', error);
       }
 
-      if(role === accountRole.Retail) {
-        router.push('/retail');
-      } else if (role === accountRole.Business) {
+      if (role === accountRole.Business) {
         router.push('/business');
       } else if (role === accountRole.Institution) {
         router.push('/institution');
@@ -194,7 +192,6 @@ export default function Register() {
             onChange={(e) => setRole(e.target.value as accountRole)}
             className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 w-full"
           >
-            <option value={accountRole.Retail}>{accountRole.Retail}</option>
             <option value={accountRole.Business}>{accountRole.Business}</option>
             <option value={accountRole.Institution}>{accountRole.Institution}</option>
           </select>

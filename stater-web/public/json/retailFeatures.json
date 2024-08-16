@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Card Issuing",
+    "subheader": "Seamless Purchases with MasterCard",
+    "description": "Issue debit, credit, or prepaid cards and enjoy up to 1.5% cashback rewards on purchases worldwide. Experience the convenience of global transactions with unparalleled rewards.",
+    "image": "./images/Mastercard-logo.png",
+    "link": "/cards"
+  },
+  {
+    "title": "Interest and Savings",
+    "subheader": "Maximize Your Savings",
+    "description": "Achieve up to 10% annual interest on your savings. Enjoy daily compounded returns on all your deposits, ensuring your money grows effortlessly.",
+    "image": "./images/stellar-logo.png",
+    "link": "/savings"
+  },
+  {
+    "title": "Cash or Bank",
+    "subheader": "Effortless Cash Digitization",
+    "description": "With MoneyGram integration, deposit or withdraw cash instantly without fees, anywhere in the world. Experience hassle-free transactions with the reliability you trust.",
+    "image": "./images/MoneyGramLogo.svg",
+    "link": "/moneygram"
+  },
+  {
+    "title": "Direct Deposit",
+    "subheader": "Swift Settlements with Plaid",
+    "description": "Enjoy instant deposits and withdrawals with no fees using your existing bank accounts. Plaid's seamless integration ensures quick and cost-effective transactions.",
+    "image": "./images/plaid-logo.png",
+    "link": "/ramp"
+  },
+  {
+    "title": "Instant Transactions",
+    "subheader": "Global Transactions, Instant Settlements",
+    "description": "Send or receive funds anywhere in the world with transactions settled in seconds. Enjoy the efficiency of instant transfers across borders.",
+    "image": "./images/circle-logo.png",
+    "link": "/pay"
+  },
+  {
+    "title": "RWAs and Forex",
+    "subheader": "Flexible Currency Management",
+    "description": "Manage your wealth in multiple currencies. Effortlessly swap or convert currencies to fit your financial needs and preferences, all at your fingertips.",
+    "image": "./images/chainlink-logo.png",
+    "link": "/assets"
+  },
+  {
+    "title": "Security and Persistance",
+    "subheader": "Never lose access to your funds",
+    "description": "Utilizing multisig and smart contract wallets, powered by Stellar, never lose access to your funds while still remaining in your custody",
+    "image": "./images/stellar-logo.png",
+    "link": "/assets"
+  }
+]

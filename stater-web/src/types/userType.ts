@@ -12,7 +12,6 @@ export interface UserType {
 }
 
 export enum accountRole {
-    Retail = 'Retail',
     Business = 'Business',
     Institution = 'Institution',
 }

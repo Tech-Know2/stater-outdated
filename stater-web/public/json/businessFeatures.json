@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Card Issuing",
+    "subheader": "Empower Your Business with MasterCard",
+    "description": "Enhance your business operations with a MasterCard-powered business card. Benefit from increased cashback on every transaction, and streamline your finances with digital ease.",
+    "image": "./images/Mastercard-logo.png",
+    "link": "/cards"
+  },
+  {
+    "title": "Earn on Leftovers",
+    "subheader": "Grow Your Business Funds",
+    "description": "Maximize the potential of your idle balances with up to 10% interest on your business accounts. Turn your excess funds into a valuable asset for your business.",
+    "image": "./images/stellar-logo.png",
+    "link": "/savings"
+  },
+  {
+    "title": "Convert When Convenient",
+    "subheader": "Seamless Cash Management",
+    "description": "Easily convert funds into cash whenever you need it. Our service, powered by MoneyGram, ensures hassle-free cash transactions with no hidden fees.",
+    "image": "./images/MoneyGramLogo.svg",
+    "link": "/moneygram"
+  },
+  {
+    "title": "Direct Deposit",
+    "subheader": "Effortless Deposits and Withdrawals",
+    "description": "Utilize your existing bank accounts for instant deposits and withdrawals with no fees. Our integration with Plaid ensures smooth and cost-effective transactions.",
+    "image": "./images/plaid-logo.png",
+    "link": "/ramp"
+  },
+  {
+    "title": "Instant Transactions",
+    "subheader": "Swift Global Transactions",
+    "description": "Conduct transactions worldwide with immediate settlement. Send or receive funds quickly and efficiently, enhancing your business's global reach.",
+    "image": "./images/circle-logo.png",
+    "link": "/pay"
+  },
+  {
+    "title": "RWAs and Forex",
+    "subheader": "Flexible Currency Management",
+    "description": "Manage and grow your business assets in various currencies. Easily swap or convert currencies to suit your operational needs and financial strategy.",
+    "image": "./images/chainlink-logo.png",
+    "link": "/assets"
+  }
+]
