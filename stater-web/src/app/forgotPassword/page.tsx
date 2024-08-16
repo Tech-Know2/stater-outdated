@@ -27,7 +27,7 @@ const ForgotPasswordPage: NextPage = () => {
   // If the user is already signed in,
   // redirect them to the home page
   if (isSignedIn) {
-    router.push('/retail');
+    router.push('/');  //Make this go to business or to institution
   }
 
   // Send the password reset code to the user's email

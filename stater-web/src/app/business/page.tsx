@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import RetailNav from './retailNav';
+import BusinessNav from './businessNav';
 
 export default function Dashboard() {
   return (
     <div className="flex">
         {/* Vertical Navigation Bar */}
-        <RetailNav />
+        <BusinessNav />
 
         {/* Main Content Area */}
         <div className="flex-1 p-8 bg-gray-100">

@@ -2,7 +2,7 @@
   {
     "title": "Card Issuing",
     "subheader": "Enhanced Card Solutions with MasterCard",
-    "description": "Issue debit, credit, or prepaid cards with advanced features tailored for institutional needs. Enjoy competitive cashback rewards and seamless global transactions, all powered by MasterCard.",
+    "description": "Issue debit, credit, or prepaid corprate cards with advanced features tailored for institutional needs. Enjoy competitive cashback rewards and seamless global transactions, all powered by MasterCard.",
     "image": "./images/",
     "link": "/cards"
   },
@@ -40,5 +40,12 @@
     "description": "Manage and grow your institutional assets in a variety of currencies. Our platform provides instant currency conversion and asset management solutions, enabling efficient and flexible financial operations.",
     "image": "./images/",
     "link": "/forex-assets"
+  },
+  {
+    "title": "Security By Default",
+    "subheader": "Own your Keys, Own Your Wallet",
+    "description": "Self custody and multisig by design. Add or remove authorized users, manage account weights and access, and control key management. Your funds, your keys, your money, forever.",
+    "image": "./images/",
+    "link": "/self-custody"
   }
 ]

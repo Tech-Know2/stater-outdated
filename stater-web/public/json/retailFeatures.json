@@ -9,7 +9,7 @@
   {
     "title": "Interest and Savings",
     "subheader": "Maximize Your Savings",
-    "description": "Achieve up to 10% annual interest on your savings. Enjoy daily compounded returns on all your deposits, ensuring your money grows effortlessly.",
+    "description": "Earn up to 10% annual interest on your savings. Enjoy daily compounded returns on all your deposits, ensuring your money grows effortlessly.",
     "image": "./images/stellar-logo.png",
     "link": "/savings"
   },
@@ -23,14 +23,14 @@
   {
     "title": "Direct Deposit",
     "subheader": "Swift Settlements with Plaid",
-    "description": "Enjoy instant deposits and withdrawals with no fees using your existing bank accounts. Plaid's seamless integration ensures quick and cost-effective transactions.",
+    "description": "Enjoy instant deposits and withdrawals with no fees using your existing bank accounts. Plaid's seamless integration ensures quick, secure, and cost-effective transactions.",
     "image": "./images/plaid-logo.png",
     "link": "/ramp"
   },
   {
     "title": "Instant Transactions",
     "subheader": "Global Transactions, Instant Settlements",
-    "description": "Send or receive funds anywhere in the world with transactions settled in seconds. Enjoy the efficiency of instant transfers across borders.",
+    "description": "Send or receive funds anywhere in the world with transactions settled in seconds. Enjoy the efficiency of instant transfers across borders and continents.",
     "image": "./images/circle-logo.png",
     "link": "/pay"
   },
@@ -44,7 +44,7 @@
   {
     "title": "Security and Persistance",
     "subheader": "Never lose access to your funds",
-    "description": "Utilizing multisig and smart contract wallets, powered by Stellar, never lose access to your funds while still remaining in your custody",
+    "description": "Utilizing multisig and smart contract wallets, powered by Stellar and Solana, never lose access to your funds while still remaining in your custody",
     "image": "./images/stellar-logo.png",
     "link": "/assets"
   }

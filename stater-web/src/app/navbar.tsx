@@ -15,7 +15,7 @@ const Navbar = () => {
             // Check if the current path is /sign-in or /sign-up
             const currentPath = window.location.pathname;
             if (currentPath === '/sign-in' || currentPath === '/sign-up') {
-                router.push('/retail');
+                router.push('/'); //Make this go to business or to institution
             }
         }
     }, [isLoaded, isSignedIn, router]);

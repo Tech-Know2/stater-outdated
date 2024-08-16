@@ -85,7 +85,7 @@ export default function InfoSection() {
                             <h3 className="text-xl font-semibold">{card.title}</h3>
                             <h4 className="text-md text-gray-600 mb-2">{card.subheader}</h4>
                             <p className="text-gray-700 mb-4">{card.description}</p>
-                            <a href={`/${card.link}`} className="text-blue-600 hover:underline mt-auto">
+                            <a href={`/${card.link}`} className="text-black hover:underline mt-auto">
                                 Learn more &rsaquo;
                             </a>
                         </div>

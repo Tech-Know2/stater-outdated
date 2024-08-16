@@ -6,7 +6,7 @@ import { currentUser } from '@clerk/nextjs/server';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function RetailNav() {
+export default function BusinessNav() {
   const { signOut } = useAuth();
   const { isSignedIn, user, isLoaded } = useUser();
 
@@ -17,13 +17,13 @@ export default function RetailNav() {
 
       {/* Navigation Links */}
       <nav className="space-y-3 flex-1 overflow-y-auto">
-        <Link href="/dashboard" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Dashboard</Link>
-        <Link href="/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Balances</Link>
-        <Link href="/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Reports</Link>
-        <Link href="/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Transfer</Link>
-        <Link href="/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Exchange</Link>
-        <Link href="/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Mint</Link>
-        <Link href="/dashboard/help-center" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Help Center</Link>
+        <Link href="/business/dashboard" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Dashboard</Link>
+        <Link href="/business/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Accounts</Link>
+        <Link href="/business/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Savings & Investments</Link>
+        <Link href="/business/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Transact</Link>
+        <Link href="/business/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Reports</Link>
+        <Link href="/business/dashboard/" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Cards</Link>
+        <Link href="/business/dashboard/help-center" className="block px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">Help Center</Link>
       </nav>
 
       {/* User Information and Sign Out Button */}

@@ -16,6 +16,7 @@ export default function LogIn() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(''); // State for error messages
   const router = useRouter();
 
   const toggleShowPassword = () => {
@@ -30,6 +31,8 @@ export default function LogIn() {
     }
 
     setLoading(true);
+    setError(''); // Clear previous errors
+
     try {
       const signInAttempt = await signIn.create({
         identifier: email,
@@ -38,11 +41,13 @@ export default function LogIn() {
 
       if (signInAttempt.status === 'complete') {
         await setActive({ session: signInAttempt.createdSessionId });
-        router.push('/retail'); //do this for now until different user types have been setup
+        //router.push('/');  //Make this go to business or to institution
       } else {
+        setError('Failed to log in. Please check your credentials and try again.');
         console.error(JSON.stringify(signInAttempt, null, 2));
       }
     } catch (err) {
+      setError('An error occurred during login. Please try again.');
       console.error(JSON.stringify(err, null, 2));
     } finally {
       setLoading(false);
@@ -55,6 +60,12 @@ export default function LogIn() {
       {loading && <ClipLoader size={50} color={"#123abc"} loading={loading} />}
 
       <div className="w-full max-w-md">
+        {error && ( // Conditionally render the error message
+          <div className="mb-4 text-red-600 text-center">
+            {error}
+          </div>
+        )}
+
         <label htmlFor="email" className="text-lg font-semibold mb-2 block">Email:</label>
         <input
           type="email"
@@ -98,7 +109,7 @@ export default function LogIn() {
         <Link href="/forgotPassword" className="mb-2 block text-center text-lg my-3 text-black">
           Forgot Password?
         </Link>
-        <Link href="/register" className="block text-center text-lg text-black">
+        <Link href="/sign-up" className="block text-center text-lg text-black">
           Create Account
         </Link>
       </div>
