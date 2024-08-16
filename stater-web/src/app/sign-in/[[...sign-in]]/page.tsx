@@ -66,7 +66,7 @@ export default function LogIn() {
           </div>
         )}
 
-        <label htmlFor="email" className="text-lg font-semibold mb-2 block">Email:</label>
+        <label htmlFor="email" className="text-md font-semibold mb-2 block">Email:</label>
         <input
           type="email"
           id="email"
@@ -76,7 +76,7 @@ export default function LogIn() {
           className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
         />
         
-        <label htmlFor="password" className="text-lg font-semibold mb-2 block">Password:</label>
+        <label htmlFor="password" className="text-md font-semibold mb-2 block">Password:</label>
         <div className="relative mb-6">
           <input
             type={showPassword ? 'text' : 'password'}
@@ -103,13 +103,13 @@ export default function LogIn() {
           onClick={handleSubmit}
           className="h-12 bg-black rounded-lg flex justify-center items-center mb-4 w-full"
         >
-          <span className="text-white text-lg font-semibold">Login</span>
+          <span className="text-white text-md font-semibold">Login</span>
         </button>
 
-        <Link href="/forgotPassword" className="mb-2 block text-center text-lg my-3 text-black">
+        <Link href="/forgotPassword" className="mb-2 block text-center text-md my-3 text-black">
           Forgot Password?
         </Link>
-        <Link href="/sign-up" className="block text-center text-lg text-black">
+        <Link href="/sign-up" className="block text-center text-md text-black">
           Create Account
         </Link>
       </div>

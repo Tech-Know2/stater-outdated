@@ -1,0 +1,38 @@
+[
+    {
+        "header": "Reach & Scale",
+        "body": "Accepted anywhere MasterCard is.",
+        "image": "./images/Mastercard-logo.png",
+        "link": "/cards"
+    },
+    {
+        "header": "Access Credit",
+        "body": "Get access to credit and oppurtunity and build your wealth right.",
+        "image": "./images/Mastercard-logo.png",
+        "link": "/cards"
+    },
+    {
+        "header": "Standard Fees",
+        "body": "Standard MasterCard fees for every card based transaction.",
+        "image": "./images/Mastercard-logo.png",
+        "link": "/cards"
+    },
+    {
+        "header": "Cash Back",
+        "body": "Make the most of your purchasing power with cash back on every purchase.",
+        "image": "./images/Mastercard-logo.png",
+        "link": "/cards"
+    },
+    {
+        "header": "Transact Globally",
+        "body": "Standard MasterCard fees for every card based transaction.",
+        "image": "./images/Mastercard-logo.png",
+        "link": "/cards"
+    },
+    {
+        "header": "Latest Payment Features",
+        "body": "Enjoy the latest in mobile payment technology with Tap-to-Pay and Digital Cards and Mobile Wallets.",
+        "image": "./images/Mastercard-logo.png",
+        "link": "/cards"
+    }
+]

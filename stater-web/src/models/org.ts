@@ -1,42 +1,41 @@
 import { Schema, model, models } from 'mongoose';
+import User from './user';
+import Wallet from './wallet';
 
 // Define the schema for a user with automatic timestamps
-const userSchema = new Schema({
-  clerkID: {
+const orgSchema = new Schema({
+  orgName: {
     type: String,
     required: true,
   },
-  firstName: {
+  orgClerkID: {
     type: String,
     required: true,
   },
-  lastName: {
-    type: String,
+  orgCreator: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
-  userName: {
-    type: String,
-    required: true,
-  },
+  orgAccounts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Wallet',
+  }],
   accountEmail: {
     type: String,
     required: true,
   },
-  accountRole: [{
+  orgType: [{
     type: String,
     required: true,
-    enum: ['Retail', 'Business', 'Institution', 'Employee'],
+    enum: ['Retail', 'Business', 'Institution'],
     default: 'Retail',
-  }],
-  wallets: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Wallet',
   }],
 }, {
   timestamps: true, // Automatically adds createdAt and updatedAt fields
 });
 
 // Create a model using the schema
-const User = models.User || model('User', userSchema);
+const Org = models.Org || model('Org', orgSchema);
 
-export default User;
+export default Org;

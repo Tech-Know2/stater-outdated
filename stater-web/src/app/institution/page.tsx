@@ -1,7 +1,21 @@
 import Link from 'next/link';
 import InstitutionNav from './institutionNav';
+import { auth } from '@clerk/nextjs/server'
+import { accountRole } from '@/types/userType';
+import { redirect } from 'next/navigation';
 
 export default function Dashboard() {
+  
+  const { has } = auth()
+
+  const isAdmin = has({ permission: 'org:type:insitution'})
+  const isEmployee = has({ permission: 'org:type:employee'})
+
+  if(!isAdmin || !isEmployee)
+  {
+    redirect('/');
+  }
+
   return (
     <div className="flex">
         {/* Vertical Navigation Bar */}

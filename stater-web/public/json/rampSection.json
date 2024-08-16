@@ -1,0 +1,26 @@
+[
+    {
+        "header": "Direct Deposit",
+        "body": "Connect a bank account and transfer funds intsantly without fees.",
+        "image": "./images/plaid-logo.png",
+        "link": "/cards"
+    },
+    {
+        "header": "Cash Based",
+        "body": "Utilize MoneyGram to easily deposit or withdrawl cash into local currenices in over 180 countries.",
+        "image": "./images/MoneyGramLogo.svg",
+        "link": "/cards"
+    },
+    {
+        "header": "Best In Class",
+        "body": "Secure, digital, trustless assets powered by Circle Finance.",
+        "image": "./images/circle-logo.png",
+        "link": "/cards"
+    },
+    {
+        "header": "Instant Data",
+        "body": "Get data on the top currencies and assets globally instantly, powered by Chainlink.",
+        "image": "./images/chainlink-logo.png",
+        "link": "/cards"
+    }
+]

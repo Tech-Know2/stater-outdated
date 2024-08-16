@@ -7,11 +7,13 @@ export interface UserType {
     lastName: string;
     userName: string;
     accountEmail: string;
-    accountRole: accountRole;
+    accountRole: accountRole[];
     wallets: walletType[];
 }
 
 export enum accountRole {
+    Retail = 'Retail',
     Business = 'Business',
     Institution = 'Institution',
+    Employee = 'Employee',
 }

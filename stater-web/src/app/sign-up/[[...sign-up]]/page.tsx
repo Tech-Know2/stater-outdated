@@ -25,6 +25,8 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  const [orgName, setOrgName] = useState('');
+
   const toggleShowPassword = () => setShowPassword(!showPassword);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -94,7 +96,7 @@ export default function Register() {
       lastName,
       userName: username,
       accountEmail: emailAddress,
-      accountRole: role,
+      accountRole: [role],
       wallets: [],
     };
 
@@ -133,73 +135,83 @@ export default function Register() {
       )}
 
       {!pendingVerification ? (
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm"> {/* Reduced the max width */}
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email" className="text-lg font-semibold mb-2 block">Email:</label>
+            <label htmlFor="email" className="text-md font-semibold mb-2 block">Email:</label>
             <input
               type="email"
               id="email"
               value={emailAddress}
               onChange={(e) => setEmailAddress(e.target.value)}
-              className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
+              className="mb-4 h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full" // Adjusted height to maintain aspect ratio
               required
             />
 
-            <label htmlFor="username" className="text-lg font-semibold mb-2 block">Username:</label>
+            <label htmlFor="username" className="text-md font-semibold mb-2 block">Username:</label>
             <input
               type="text"
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
+              className="mb-4 h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
               required
             />
 
             <div className="flex mb-4">
               <div className="w-1/2 pr-1">
-                <label htmlFor="firstName" className="text-lg font-semibold mb-2 block">First Name:</label>
+                <label htmlFor="firstName" className="text-md font-semibold mb-2 block">First Name:</label>
                 <input
                   type="text"
                   id="firstName"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
+                  className="h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
                   required
                 />
               </div>
               <div className="w-1/2 pl-1">
-                <label htmlFor="lastName" className="text-lg font-semibold mb-2 block">Last Name:</label>
+                <label htmlFor="lastName" className="text-md font-semibold mb-2 block">Last Name:</label>
                 <input
                   type="text"
                   id="lastName"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  className="h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
+                  className="h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
                   required
                 />
               </div>
             </div>
 
-            <label htmlFor="role" className="text-lg font-semibold mb-2 block">Account Type:</label>
+            <label htmlFor="username" className="text-md font-semibold mb-2 block">Org Name:</label>
+            <input
+              type="text"
+              id="username"
+              value={orgName}
+              onChange={(e) => setOrgName(e.target.value)}
+              className="mb-4 h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
+              required
+            />
+
+            <label htmlFor="role" className="text-md font-semibold mb-2 block">Account Type:</label>
             <select
               id="role"
               value={role}
               onChange={(e) => setRole(e.target.value as accountRole)}
-              className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 w-full"
+              className="mb-4 h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 w-full"
               required
             >
               <option value={accountRole.Business}>{accountRole.Business}</option>
               <option value={accountRole.Institution}>{accountRole.Institution}</option>
             </select>
 
-            <label htmlFor="password" className="text-lg font-semibold mb-2 block">Password:</label>
+            <label htmlFor="password" className="text-md font-semibold mb-2 block">Password:</label>
             <div className="relative mb-6">
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
+                className="h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
                 required
               />
               <button type="button" onClick={toggleShowPassword} className="absolute right-3 top-3">
@@ -213,39 +225,35 @@ export default function Register() {
 
             <button
               type="submit"
-              className="h-12 bg-black rounded-lg flex justify-center items-center mb-4 w-full"
+              className="h-10 bg-black rounded-lg flex justify-center items-center mb-4 w-full"
             >
               <span className="text-white text-lg font-semibold">Sign up</span>
             </button>
 
-            <Link href="/sign-in" className="block text-center text-lg text-black">
+            <Link href="/sign-in" className="block text-center text-md text-black">
               Already have an account? Log in
             </Link>
           </form>
         </div>
       ) : (
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm">
           <form onSubmit={handleVerify}>
-            <label htmlFor="code" className="text-lg font-semibold mb-2 block">Verification Code:</label>
+            <label htmlFor="code" className="text-md font-semibold mb-2 block">Verification Code:</label>
             <input
               type="text"
               id="code"
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              className="mb-4 h-12 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
+              className="mb-4 h-10 border border-gray-300 rounded-lg p-2 bg-white text-gray-900 placeholder-gray-500 w-full"
               required
             />
 
             <button
               type="submit"
-              className="h-12 bg-black rounded-lg flex justify-center items-center mb-4 w-full"
+              className="h-10 bg-black rounded-lg flex justify-center items-center mb-4 w-full"
             >
-              <span className="text-white text-lg font-semibold">Verify Email</span>
+              <span className="text-white text-md font-semibold">Verify</span>
             </button>
-
-            <Link href="/sign-in" className="block text-center text-lg text-black">
-              Already have an account? Log in
-            </Link>
           </form>
         </div>
       )}
