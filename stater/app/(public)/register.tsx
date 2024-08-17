@@ -6,6 +6,8 @@ import { Stack } from 'expo-router';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Register = () => {
+  const STATER_WEB_API = process.env.STATER_WEB_API as string;
+
   const { isLoaded, signUp, setActive } = useSignUp();
 
   const [emailAddress, setEmailAddress] = useState('');
@@ -60,6 +62,32 @@ const Register = () => {
 
       if (completeSignUp.status === 'complete') {
         await setActive({ session: completeSignUp.createdSessionId });
+
+        const userData = {
+          clerkID: completeSignUp.createdUserId,
+          firstName,
+          lastName,
+          userName: username,
+          accountEmail: emailAddress,
+          accountRole: ['Retail'],
+          wallets: [],
+        };
+  
+        // Make the PUT request to add the user to your database
+        const response = await fetch(`${STATER_WEB_API}/api/user`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        });
+  
+        if (response.ok) {
+          console.log('User added to database successfully');
+        } else {
+          console.error('Failed to add user to database:', response.statusText);
+        }
+
       } else {
         console.error(JSON.stringify(completeSignUp, null, 2));
       }

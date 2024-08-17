@@ -19,7 +19,7 @@
     },
     {
         "header": "Instant Data",
-        "body": "Get data on the top currencies and assets globally instantly, powered by Chainlink.",
+        "body": "Get data on the top currencies and assets globally, powered by Chainlink.",
         "image": "./images/chainlink-logo.png",
         "link": "/cards"
     }

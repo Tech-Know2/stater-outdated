@@ -22,8 +22,8 @@ export default function RampSection() {
         <main>
             <div className="flex flex-col items-center justify-center bg-white py-10">
                 <div className="w-3/4 p-6 text-left bg-gray-100 shadow shadow-md rounded-lg">
-                    <h1 className="text-xl mx-4 font-semibold">Take Advantage of our Partners</h1>
-                    <h2 className="text-md mx-4 mt-4">Easily cash in or out with our MoneyGram partnership, or deposit and withdrawl easily by connecting a bank account to Plaid.</h2>
+                    <h1 className="text-3xl font-semibold mb-4">Take Advantage of our Partnerships</h1>
+                    <h2 className="text-lg text-gray-600 mb-8">Easily cash in or out with our MoneyGram partnership, or deposit and withdrawl easily by connecting a bank account to Plaid.</h2>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-0 mt-4">
                         {cardDisplay.map((card, index) => (
                             <div key={index} className="bg-white rounded-lg shadow-lg p-6 flex flex-col text-left border border-gray-200 m-4">
